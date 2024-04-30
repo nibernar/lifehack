@@ -1,5 +1,5 @@
-#ifndef TAB_HPP
-#define TAB_HPP
+#ifndef MAP_HPP
+#define MAP_HPP
 
 #include <iostream>
 #include <string>
@@ -7,20 +7,23 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
-#include <GLFW/glfw3.h>
-#define TILE_SIZE 50
+#include <GLFW/glfw3.h> 
+#include "Node.hpp"
+#define WIDTH 800
+#define HEIGHT 600
+
+class Node;
 
 class Map {
 public:
-    void checkChar( std::string const & line ) const;
-    void checkWall( std::string & line ) const;
-    void setMap( const std::string& line );
-    std::vector<std::vector<std::string> > getMap() const;
-    void parsMap();
+    void generation();
+    void update();
+    void setMap( std::vector<std::vector<std::string> > vec );
+    std::vector<std::vector<Node> > getMap() const;
     Map();
     ~Map();
 private:
-    std::vector<std::vector<std::string> > _map;
+    std::vector<std::vector<Node> > _map;
 };
 
 std::ostream & operator<<( std::ostream & out, Map const & src );

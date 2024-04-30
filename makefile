@@ -1,11 +1,15 @@
 NAME			=	lifeHack
 
-HEADERS_FILES	=	Map.hpp
+HEADERS_FILES	=	Map_parsing.hpp \
+					Map.hpp \
+					Node.hpp
 
 HEADERS			= $(HEADERS_FILES)
 
 SRC_FILES		=	main.cpp \
-					Map.cpp
+					Map_parsing.cpp \
+					Map.cpp \
+					Node.cpp
 
 SRCS			= 	$(SRC_FILES)
 
