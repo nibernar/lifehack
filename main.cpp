@@ -49,12 +49,10 @@ void mainLoop(GLFWwindow* window, Map map) {
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
         drawMap(map.getMap(), TILE_SIZE);
-        // getchar();
         map.generation();
         map.update();
         glfwSwapBuffers(window);
         glfwPollEvents();
-        sleep(1);
     }
     glfwDestroyWindow(window);
     glfwTerminate();

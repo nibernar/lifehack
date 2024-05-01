@@ -1,6 +1,6 @@
 #include "Node.hpp"
 
-Node::Node(const char & c) : _Node(c), _life(false), _dormance(false) {
+Node::Node(const char & c) : _Node(c), _dormance(false) {
 
 }
 
@@ -8,16 +8,8 @@ Node::~Node() {
 
 }
 
-bool Node::getLife() const {
-    return this->_life;
-}
-
 bool Node::getDormance() const {
     return this->_dormance;
-}
-
-void Node::setLife( bool status ) {
-    this->_life = status;
 }
 
 void Node::setDormance( bool status ) {
@@ -41,23 +33,19 @@ void Node::checkCase( const std::vector<std::vector<Node>>& map, size_t i, size_
         size_t nj = j + dCol[k];
         if (ni >= 0 && ni < map.size() && nj >= 0 && nj < map[0].size()) {
             const Node & neighbor = map[ni][nj];
-            if (neighbor.getLife() == true) {
+            if (neighbor.getNode() == 'X') {
                 life += 1;
             }
         }
     }
-    if (this->getLife() == true)
+    if (this->getNode() == 'X')
     {
         if (life == 2 || life == 3)
             this->setDormance(true);
-        // else
-        //     this->setDormance(false);
     }
     else
     {
         if (life == 3)
             this->setDormance(true);
-        // else
-        //     this->setDormance(false);
     }
 }

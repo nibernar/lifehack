@@ -20,8 +20,6 @@ void Map::setMap( std::vector<std::vector<std::string> > vec ) {
             for (size_t k = 0; k < str.length(); k++) {
                 char c = str[k];
                 Node node(c);
-                if (c == 'X')
-                    node.setLife(true);
                 node_row.push_back(node);
             }
         }
@@ -48,7 +46,6 @@ void Map::update() {
                 continue;
             if (this->_map[i][j].getDormance() == true) {
                 this->_map[i][j].setNode('X');
-                this->_map[i][j].setLife(true);
                 this->_map[i][j].setDormance(false);
             }
             else if (this->_map[i][j].getDormance() == false) {

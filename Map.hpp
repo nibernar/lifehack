@@ -9,8 +9,8 @@
 #include <sstream>
 #include <GLFW/glfw3.h> 
 #include "Node.hpp"
-#define WIDTH 800
-#define HEIGHT 600
+#define WIDTH 1800
+#define HEIGHT 1600
 
 class Node;
 
